@@ -1,5 +1,6 @@
-package com.bifos.batch;
+package com.bifos.batch.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.job.builder.JobBuilder;
@@ -13,17 +14,13 @@ import org.springframework.transaction.PlatformTransactionManager;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Configuration
+@RequiredArgsConstructor
 public class SystemTerminationConfig {
 
     private final int TERMINATION_TARGET = 5;
     private final JobRepository jobRepository;
     private final PlatformTransactionManager transactionManager;
     private AtomicInteger processesKilled = new AtomicInteger(0);
-
-    public SystemTerminationConfig(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
-        this.jobRepository = jobRepository;
-        this.transactionManager = transactionManager;
-    }
 
     @Bean
     public Job systemTerminationSimulationJob() {
