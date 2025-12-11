@@ -13,7 +13,7 @@ public class ZombieProcessCleanupTasklet implements Tasklet {
     private int killedProcesses = 0;
 
     @Override
-    public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
+    public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) {
         killedProcesses++;
         log.info("☠️  프로세스 강제 종료... ({}/{})", killedProcesses, processesToKill);
 
