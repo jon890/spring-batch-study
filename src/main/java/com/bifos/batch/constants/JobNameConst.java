@@ -33,4 +33,10 @@ public class JobNameConst {
     public static final String FILE_SYSTEM_FAILURE_READER = FILE_SYSTEM_FAILURE + DELIMITER + "reader";
     public static final String FILE_SYSTEM_FAILURE_WRITER = FILE_SYSTEM_FAILURE + DELIMITER + "writer";
 
+    private static final String FILE_FIXED_SYSTEM_FAILURE = FILE_EXAMPLE + DELIMITER + "fixedSystemFailure";
+    public static final String FILE_FIXED_SYSTEM_FAILURE_JOB = FILE_FIXED_SYSTEM_FAILURE + DELIMITER + "job";
+    public static final String FILE_FIXED_SYSTEM_FAILURE_STEP = FILE_FIXED_SYSTEM_FAILURE + DELIMITER + "step";
+    public static final String FILE_FIXED_SYSTEM_FAILURE_READER = FILE_FIXED_SYSTEM_FAILURE + DELIMITER + "reader";
+    public static final String FILE_FIXED_SYSTEM_FAILURE_WRITER = FILE_FIXED_SYSTEM_FAILURE + DELIMITER + "writer";
+
 }
