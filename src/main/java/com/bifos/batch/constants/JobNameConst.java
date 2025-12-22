@@ -25,4 +25,12 @@ public class JobNameConst {
     public static final String LISTENER_SYSTEM_DESTRUCTION_JOB = LISTENER_SYSTEM_DESTRUCTION + DELIMITER + "job";
     public static final String LISTENER_SYSTEM_DESTRUCTION_TERMINATION_STEP = LISTENER_SYSTEM_DESTRUCTION + DELIMITER + "terminationStep";
 
+    private static final String FILE_EXAMPLE = "file";
+
+    private static final String FILE_SYSTEM_FAILURE = FILE_EXAMPLE + DELIMITER + "systemFailure";
+    public static final String FILE_SYSTEM_FAILURE_JOB = FILE_SYSTEM_FAILURE + DELIMITER + "job";
+    public static final String FILE_SYSTEM_FAILURE_STEP = FILE_SYSTEM_FAILURE + DELIMITER + "step";
+    public static final String FILE_SYSTEM_FAILURE_READER = FILE_SYSTEM_FAILURE + DELIMITER + "reader";
+    public static final String FILE_SYSTEM_FAILURE_WRITER = FILE_SYSTEM_FAILURE + DELIMITER + "writer";
+
 }
