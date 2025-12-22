@@ -22,7 +22,7 @@ import java.util.Random;
 
 /**
  * JobExecutionListener와 ExecutionContext를 활용한 동적 데이터 전달 연습
- * ./gradlew bootRun --args=='spring.batch.job.name=listener_systemInfiltration'
+ * ./gradlew bootRun --args='--spring.batch.job.name=listener_systemInfiltration_job'
  */
 @Slf4j
 @Configuration
