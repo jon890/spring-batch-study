@@ -1,6 +1,7 @@
 package com.bifos.batch.file;
 
 import com.bifos.batch.constants.JobNameConst;
+import com.bifos.batch.file.entity.SystemFailure;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;

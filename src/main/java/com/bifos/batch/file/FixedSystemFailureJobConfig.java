@@ -1,6 +1,8 @@
 package com.bifos.batch.file;
 
 import com.bifos.batch.constants.JobNameConst;
+import com.bifos.batch.file.entity.SystemFailure;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -13,7 +15,6 @@ import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
 import org.springframework.batch.item.file.transform.Range;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -27,13 +28,11 @@ import org.springframework.transaction.PlatformTransactionManager;
  */
 @Slf4j
 @Configuration
+@RequiredArgsConstructor
 public class FixedSystemFailureJobConfig {
 
-    @Autowired
-    private JobRepository jobRepository;
-
-    @Autowired
-    private PlatformTransactionManager transactionManager;
+    private final JobRepository jobRepository;
+    private final PlatformTransactionManager transactionManager;
 
 
     @Bean(JobNameConst.FILE_FIXED_SYSTEM_FAILURE_JOB)
@@ -63,7 +62,7 @@ public class FixedSystemFailureJobConfig {
             .name(JobNameConst.FILE_FIXED_SYSTEM_FAILURE_READER)
             .resource(new FileSystemResource(inputFile))
             .fixedLength()
-            .columns(new Range[]{
+            .columns(new Range[] {
                 new Range(1, 8),     // errorId: ERR001 + 공백 2칸
                 new Range(9, 29),    // errorDateTime: 날짜시간 + 공백 2칸
                 new Range(30, 39),   // severity: CRITICAL/FATAL + 패딩

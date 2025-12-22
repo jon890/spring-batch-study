@@ -1,4 +1,4 @@
-package com.bifos.batch.file;
+package com.bifos.batch.file.entity;
 
 import lombok.Data;
 
