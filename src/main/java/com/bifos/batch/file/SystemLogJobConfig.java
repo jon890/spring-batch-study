@@ -7,19 +7,19 @@ import com.bifos.batch.file.mapper.CollectFieldSetMapper;
 import com.bifos.batch.file.mapper.ErrorFieldSetMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.batch.core.Job;
-import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepScope;
+import org.springframework.batch.core.job.Job;
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.repository.JobRepository;
+import org.springframework.batch.core.step.Step;
 import org.springframework.batch.core.step.builder.StepBuilder;
-import org.springframework.batch.item.ItemReader;
-import org.springframework.batch.item.ItemWriter;
-import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
-import org.springframework.batch.item.file.mapping.FieldSetMapper;
-import org.springframework.batch.item.file.mapping.PatternMatchingCompositeLineMapper;
-import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
-import org.springframework.batch.item.file.transform.LineTokenizer;
+import org.springframework.batch.infrastructure.item.ItemReader;
+import org.springframework.batch.infrastructure.item.ItemWriter;
+import org.springframework.batch.infrastructure.item.file.builder.FlatFileItemReaderBuilder;
+import org.springframework.batch.infrastructure.item.file.mapping.FieldSetMapper;
+import org.springframework.batch.infrastructure.item.file.mapping.PatternMatchingCompositeLineMapper;
+import org.springframework.batch.infrastructure.item.file.transform.DelimitedLineTokenizer;
+import org.springframework.batch.infrastructure.item.file.transform.LineTokenizer;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -73,23 +73,20 @@ public class SystemLogJobConfig {
             .build();
     }
 
+
     @Bean
     public PatternMatchingCompositeLineMapper<SystemLog> systemLogLineMapper() {
-        PatternMatchingCompositeLineMapper<SystemLog> lineMapper = new PatternMatchingCompositeLineMapper<>();
-
         Map<String, LineTokenizer> tokenizers = new HashMap<>();
         tokenizers.put("ERROR*", errorLineTokenizer());
         tokenizers.put("ABORT*", abortLineTokenizer());
         tokenizers.put("COLLECT*", collectLineTokenizer());
-        lineMapper.setTokenizers(tokenizers);
 
         Map<String, FieldSetMapper<SystemLog>> mappers = new HashMap<>();
         mappers.put("ERROR*", new ErrorFieldSetMapper());
         mappers.put("ABORT*", new AbortFieldSetMapper());
         mappers.put("COLLECT*", new CollectFieldSetMapper());
-        lineMapper.setFieldSetMappers(mappers);
 
-        return lineMapper;
+        return new PatternMatchingCompositeLineMapper<>(tokenizers, mappers);
     }
 
 
