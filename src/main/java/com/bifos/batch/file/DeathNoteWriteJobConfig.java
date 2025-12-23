@@ -21,7 +21,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import java.util.List;
 
 /**
- * CSV 파일로 아이템을 쓰는 예제
+ * FlatFileItemWriter를 활용해 구분자 형식의 CSV 파일로 아이템을 쓰는 예제
  * ./gradlew bootRun --args='--spring.batch.job.name=deathNoteWriteJob outputDir=./data'
  */
 @Configuration
