@@ -22,18 +22,10 @@ public class InfiltrationPlanListener implements JobExecutionListener {
 
 
     private Map<String, Object> generateInfiltrationPlan() {
-        List<String> targets = List.of(
-            "판교 서버실", "안산 데이터센터"
-                                      );
-        List<String> objectives = List.of(
-            "kill -9 실행", "rm -rf 전개", "chmod 000 적용", "/dev/null로 리다이렉션"
-                                         );
-        List<String> targetData = List.of(
-            "코어 덤프 파일", "시스템 로그", "설정 파일", "백업 데이터"
-                                         );
-        List<String> requiredTools = List.of(
-            "USB 킬러", "널 바이트 인젝터", "커널 패닉 유발기", "메모리 시퍼너"
-                                            );
+        List<String> targets = List.of("판교 서버실", "안산 데이터센터");
+        List<String> objectives = List.of("kill -9 실행", "rm -rf 전개", "chmod 000 적용", "/dev/null로 리다이렉션");
+        List<String> targetData = List.of("코어 덤프 파일", "시스템 로그", "설정 파일", "백업 데이터");
+        List<String> requiredTools = List.of("USB 킬러", "널 바이트 인젝터", "커널 패닉 유발기", "메모리 시퍼너");
 
         Random rand = new Random();
 
