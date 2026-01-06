@@ -3,6 +3,7 @@ plugins {
     id("org.springframework.boot") version "4.0.1"
     id("io.spring.dependency-management") version "1.1.7"
     id("application")
+    kotlin("jvm")
 }
 
 group = "com.system.batch"
@@ -28,6 +29,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     
     implementation("org.springframework.boot:spring-boot-starter-json")
+    implementation("tools.jackson.datatype:jackson-datatype-jsr310:3.0.0-rc2")
     runtimeOnly("com.h2database:h2")
     
     // Lombok
@@ -39,6 +41,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.batch:spring-batch-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 tasks.test {
