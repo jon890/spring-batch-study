@@ -30,7 +30,7 @@ dependencies {
     
     implementation("org.springframework.boot:spring-boot-starter-json")
     implementation("tools.jackson.datatype:jackson-datatype-jsr310:3.0.0-rc2")
-    runtimeOnly("com.h2database:h2")
+    runtimeOnly("org.postgresql:postgresql")
     
     // Lombok
     compileOnly("org.projectlombok:lombok")
