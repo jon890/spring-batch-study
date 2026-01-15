@@ -13,6 +13,10 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * 우리의 첫 Spring Batch Job
+ * ./gradlew bootRun --args='--spring.batch.job.name=firstJob'
+ */
 @Configuration
 @RequiredArgsConstructor
 public class FirstJobConfig {

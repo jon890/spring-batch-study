@@ -2,10 +2,9 @@ spring:
   sql:
     init:
       mode: always
-      schema-locations: classpath:org/springframework/batch/core/schema-drop-postgresql.sql
-  batch:
-    jdbc:
-      initialze-schema: always
+      schema-locations:
+        - classpath:org/springframework/batch/core/schema-drop-postgresql.sql
+        - classpath:org/springframework/batch/core/schema-postgresql.sql
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     driver-class-name: org.postgresql.Driver
